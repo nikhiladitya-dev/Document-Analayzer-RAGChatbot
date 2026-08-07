@@ -1,111 +1,129 @@
-# 🐼 PANDA CHATBOT
-### Chat with Any YouTube Video using Retrieval-Augmented Generation (RAG)
+# ✨ DIVA – Intelligent Document Analyzer RAG Chatbot
 
-<p align="center">
-  <strong>Skip the Watch. Ask the Video.</strong>
-</p>
+> Chat with your documents developed using strong concepts of Retrieval-Augmented Generation (RAG), semantic search, and Large Language Models.
+
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
+![Streamlit](https://img.shields.io/badge/Streamlit-Frontend-red)
+![LangChain](https://img.shields.io/badge/LangChain-RAG-orange)
+![ChromaDB](https://img.shields.io/badge/ChromaDB-VectorDB-purple)
+![License](https://img.shields.io/badge/License-MIT-blue)
 
 ---
 
-## 📖 Overview
+# 📖 Overview
 
-PANDA CHATBOT is a production-oriented Retrieval-Augmented Generation (RAG) application that allows users to interact with any YouTube video conversationally.
+**DIVA** is a production-oriented **Retrieval-Augmented Generation (RAG)** application that enables users to interact conversationally with their documents.
 
-Instead of watching an entire video, users simply provide a YouTube URL and ask questions in natural language. The application retrieves the most relevant transcript segments and generates grounded answers using a Large Language Model while providing timestamp citations from the original video.
+Instead of manually reading lengthy PDFs or searching through hundreds of pages, users simply upload a document and ask questions in natural language. Doclyzer retrieves the most relevant document chunks using semantic search and generates grounded answers using a Large Language Model while providing page-based citations for transparency.
 
-The project is designed using a modular architecture with FastAPI, LangChain, ChromaDB, Hugging Face models, and Streamlit.
+The application is designed with a modular architecture using **FastAPI**, **LangChain**, **ChromaDB**, **Hugging Face**, and **Streamlit**, making it easy to extend into enterprise-grade document intelligence systems.
 
 ---
 
 # ✨ Features
 
-### 🎥 YouTube Processing
+##  Document Processing
 
-- Process any supported YouTube video
-- Automatically extract transcripts
-- Preserve timestamps
-- Store transcript locally
-- Intelligent transcript chunking
+- Upload PDF, DOCX, and TXT documents
+- Automatic document parsing
+- Page-aware document loading
+- Recursive intelligent chunking
+- Metadata preservation
+- Local document storage
 
 ---
 
-### 🧠 Semantic Search
+##  Semantic Search
 
-- Recursive document chunking
-- HuggingFace Embeddings
+- Recursive Character Text Splitting
+- Hugging Face Embeddings
 - ChromaDB Vector Database
-- Persistent vector storage
-- Fast semantic retrieval
+- Persistent Vector Storage
+- Maximum Marginal Relevance (MMR) Retrieval
+- Fast Semantic Search
 
 ---
 
-### 🤖 Retrieval-Augmented Generation (RAG)
+##  Retrieval-Augmented Generation (RAG)
 
 - Context-aware retrieval
-- MMR (Max Marginal Relevance) Search
-- Multi-turn conversation support
 - History-aware question rewriting
-- Grounded responses only
+- Multi-turn conversations
+- Grounded AI responses
 - Hallucination prevention
+- Mathematical reasoning over document data
+- Source-aware answer generation
 
 ---
 
-### 📍 Source Attribution
+##  Source Attribution
 
-Every answer includes:
+Every generated response includes:
 
-- Transcript citations
-- Video timestamps
-- Retrieved transcript chunks
+- Document name
+- Page citations
+- Retrieved source chunks
 
-This allows users to directly verify every generated response.
+This enables users to verify every generated answer directly from the original document.
 
 ---
 
-### 💻 Modern Web Interface
+##  Modern User Interface
 
-- Streamlit Frontend
+- Clean Streamlit interface
 - Responsive layout
-- Interactive chat interface
-- Clean sidebar
-- Video processing workflow
-- Professional UI inspired by modern AI assistants
+- Interactive chat experience
+- Elegant document upload workflow
+- Professional sidebar
+- Modern AI-inspired design
 
 ---
 
-# 🏗️ Project Architecture
+#  System Architecture
 
-```
-User
-   │
-   ▼
-Streamlit Frontend
-   │
-   ▼
-FastAPI Backend
-   │
-   ▼
-Chat Service
-   │
-   ▼
-History Aware Retrieval
-   │
-   ▼
-MMR Retriever
-   │
-   ▼
-Chroma Vector Database
-   │
-   ▼
-Transcript Chunks
-   │
-   ▼
-Large Language Model
+```text
+                    User
+                      │
+                      ▼
+             Streamlit Frontend
+                      │
+                      ▼
+               FastAPI Backend
+                      │
+                      ▼
+              Indexing Service
+                      │
+        ┌─────────────┴─────────────┐
+        ▼                           ▼
+ Loader Service             Document Processor
+        │                           │
+        └─────────────┬─────────────┘
+                      ▼
+              Document Chunks
+                      │
+                      ▼
+            Embedding Generation
+                      │
+                      ▼
+            Chroma Vector Database
+                      │
+                      ▼
+             MMR Semantic Retrieval
+                      │
+                      ▼
+          History-aware Query Rewriter
+                      │
+                      ▼
+                Qwen 2.5 LLM
+                      │
+                      ▼
+         Grounded Response + Citations
 ```
 
 ---
 
-# ⚙️ Tech Stack
+#  Tech Stack
 
 ## Backend
 
@@ -118,17 +136,18 @@ Large Language Model
 
 - Streamlit
 
-## Embeddings
+## Embedding Model
 
 - BAAI/bge-small-en-v1.5
 
-## Language Model
+## Large Language Model
 
 - Qwen2.5-7B-Instruct
 
-## Transcript Extraction
+## Document Parsing
 
-- youtube-transcript-api
+- PyMuPDF
+- python-docx
 
 ## Vector Database
 
@@ -138,8 +157,8 @@ Large Language Model
 
 # 📂 Project Structure
 
-```
-youtube-rag-chatbot/
+```text
+Document-Analyzer-RAGChatbot/
 
 │
 ├── app/
@@ -154,7 +173,7 @@ youtube-rag-chatbot/
 │   └── main.py
 │
 ├── data/
-│   ├── transcripts/
+│   ├── documents/
 │   ├── vector_db/
 │   └── cache/
 │
@@ -167,55 +186,66 @@ youtube-rag-chatbot/
 
 ---
 
-# 🚀 Installation
+#  RAG Workflow
 
-Clone the repository
-
-```bash
-git clone https://github.com/YOUR_USERNAME/youtube-rag-chatbot.git
-```
-
-Navigate into the project
-
-```bash
-cd youtube-rag-chatbot
-```
-
-Create a virtual environment
-
-```bash
-python -m venv venv
-```
-
-Activate it
-
-Windows
-
-```bash
-venv\Scripts\activate
-```
-
-Linux / Mac
-
-```bash
-source venv/bin/activate
-```
-
-Install dependencies
-
-```bash
-pip install -r requirements.txt
+```text
+Upload Document
+        │
+        ▼
+Loader Service
+        │
+        ▼
+Document Processing
+        │
+        ▼
+Recursive Chunking
+        │
+        ▼
+Embedding Generation
+        │
+        ▼
+Chroma Vector Database
+        │
+        ▼
+MMR Retrieval
+        │
+        ▼
+Question Rewriting
+        │
+        ▼
+Qwen 2.5 LLM
+        │
+        ▼
+Grounded Response
+        │
+        ▼
+Page Citations
 ```
 
 ---
 
-# 🔑 Environment Variables
+#  Project Evolution
 
-Create a `.env` file
+This project originally began as a **YouTube Video RAG Chatbot**, allowing users to chat with YouTube videos using transcript-based Retrieval-Augmented Generation.
 
-```env
-HUGGINGFACEHUB_API_TOKEN=YOUR_API_KEY
-```
+The application was later **completely refactored** into a generic **Document Analyzer RAG Chatbot**, just by leveraging its architecture, modularity, and extensibility.
+
+## Major Refactoring Highlights
+
+- Replaced YouTube transcript ingestion with a generic Loader Service
+- Added support for PDF, DOCX, and TXT documents
+- Redesigned the indexing pipeline
+- Refactored transcript processing into a reusable Document Processor
+- Removed all YouTube-specific services, models, and APIs
+- Introduced an Indexing Service for orchestration
+- Redesigned the FastAPI API layer
+- Updated the Streamlit frontend for document uploads
+- Refactored prompts for document-grounded reasoning
+- Replaced timestamp citations with page citations
+- Simplified the RAG pipeline for single-document analysis
+- Improved modularity for future multi-document support
+
+This refactoring demonstrates how a domain-specific RAG application can be transformed into a reusable document intelligence platform.
 
 ---
 
@@ -225,7 +255,7 @@ HUGGINGFACEHUB_API_TOKEN=YOUR_API_KEY
 python run.py
 ```
 
-Backend will be available at
+Backend will be available at:
 
 ```
 http://127.0.0.1:8000
@@ -241,104 +271,67 @@ streamlit run app/frontend/app.py
 
 ---
 
-# 🧩 Implemented RAG Pipeline
+#  Current Capabilities
 
-✅ Transcript Extraction
-
-↓
-
-✅ Document Creation
-
-↓
-
-✅ Recursive Text Splitting
-
-↓
-
-✅ Embedding Generation
-
-↓
-
-✅ ChromaDB Indexing
-
-↓
-
-✅ Semantic Search
-
-↓
-
-✅ MMR Retrieval
-
-↓
-
-✅ History-aware Query Rewriting
-
-↓
-
-✅ Retrieval-Augmented Generation
-
-↓
-
-✅ Timestamp Citations
-
-↓
-
-✅ Interactive Chat UI
+- Chat with uploaded documents
+- PDF, DOCX, and TXT support
+- Semantic document search
+- Context-aware conversations
+- History-aware retrieval
+- MMR Retrieval
+- Grounded AI responses
+- Mathematical reasoning from document data
+- Page-based citations
+- Modular architecture
+- Production-ready backend
 
 ---
 
-# 🎯 Current Capabilities
+# 🛣️ Future Roadmap
 
-✔ Chat with any supported YouTube video
-
-✔ Context-aware conversations
-
-✔ History-aware retrieval
-
-✔ Grounded AI responses
-
-✔ Timestamp citations
-
-✔ Semantic transcript search
-
-✔ Modern web interface
-
-✔ Modular architecture
-
-✔ Production-ready backend
-
----
-
-# 📈 Future Improvements
-
-- User authentication
-- Multiple video workspace
-- PDF export of conversations
-- Streaming responses
-- Voice input
-- Multi-language support
+- Multiple document workspaces
+- Cross-document querying
+- Hybrid Retrieval (Dense + BM25)
+- OCR support for scanned PDFs
+- Table-aware document understanding
+- AI-powered document summarization
 - Docker deployment
 - Cloud deployment
-- Conversation history persistence
-- Video thumbnail previews
-- Source highlighting inside transcript
+- Docker optimization
+- Citation highlighting inside documents
+- Export conversations to PDF
 
 ---
 
-# 📸 Screenshots
-
-> Add screenshots of your application here.
-
-Examples:
+#  Screenshots
 
 - Home Screen
-- Processing Video
+
+  <img width="1918" height="979" alt="image" src="https://github.com/user-attachments/assets/0d74109c-8db0-4f39-a7cf-6facaebe9642" />
+
+- Upload Document
+
+  <img width="1919" height="1029" alt="image" src="https://github.com/user-attachments/assets/41469b68-0e0f-44e8-8edf-27dd1f1aaca1" />
+  
 - Chat Interface
-- Timestamp Citations
+
+  <img width="1919" height="1024" alt="image" src="https://github.com/user-attachments/assets/b5759a26-0700-4cc4-9586-fc0513752e09" />
+
+- Page Citations
+
+  <img width="675" height="131" alt="image" src="https://github.com/user-attachments/assets/80cea0a9-0a9f-4f9a-8592-679eba19d478" />
+
+
+- Example Responses
+
+  <img width="928" height="825" alt="image" src="https://github.com/user-attachments/assets/4d7cf053-340b-46fa-86e6-58534e907e34" />
+
+
+  
 
 ---
 
-# 🎓 Learning Outcomes
+#  Learning Outcomes
 
 This project demonstrates practical experience with:
 
@@ -350,9 +343,11 @@ This project demonstrates practical experience with:
 - Prompt Engineering
 - FastAPI
 - Streamlit
+- ChromaDB
+- Hugging Face Inference API
 - Production Software Architecture
 - REST API Design
-- Frontend Integration
+- Frontend–Backend Integration
 - Modular Python Development
 
 ---
@@ -361,12 +356,16 @@ This project demonstrates practical experience with:
 
 **Nikhil Aditya**
 
-B.Tech Computer Science Engineering
+M.Tech Software Engineering
 
 VIT-AP University
 
+GitHub: https://github.com/nikhiladitya-dev
+
 ---
 
-# ⭐ If you found this project useful
+# ⭐ Support
 
-Consider giving this repository a ⭐ on GitHub.
+If you found this project useful, consider giving it a **⭐ Star** on GitHub.
+
+It helps others discover the project and motivates future improvements.
