@@ -19,6 +19,16 @@ Instead of manually reading lengthy PDFs or searching through hundreds of pages,
 
 The application is designed with a modular architecture using **FastAPI**, **LangChain**, **ChromaDB**, **Hugging Face**, and **Streamlit**, making it easy to extend into enterprise-grade document intelligence systems.
 
+The RAG pipeline evaluation is also performed upon retriever and generator. And the evaluation using **DeepEval** produced the following results 
+
+**Retriever Evaluation:**
+- Contextual Precision : 1.00
+- Contextual Recall : 0.84
+  
+**Generator Evaluation:**
+- Faithfulness : 0.86
+- Answer Relevancy : 0.95
+
 ---
 
 # ✨ Features
@@ -326,43 +336,12 @@ streamlit run app/frontend/app.py
 
   <img width="928" height="825" alt="image" src="https://github.com/user-attachments/assets/4d7cf053-340b-46fa-86e6-58534e907e34" />
 
+- RAG Evaluation
 
-  
+  <img width="896" height="378" alt="Screenshot 2026-09-09 110536" src="https://github.com/user-attachments/assets/e5241363-49f5-49bb-a9bb-11daaf6b15ee" />
 
----
+  <img width="1295" height="377" alt="Screenshot 2026-09-10 103405" src="https://github.com/user-attachments/assets/5b82c2cb-45c5-4e5e-b9d2-f99ebcf41844" />
 
-#  Learning Outcomes
-
-This project demonstrates practical experience with:
-
-- Retrieval-Augmented Generation (RAG)
-- Semantic Search
-- Vector Databases
-- LangChain
-- Large Language Models
-- Prompt Engineering
-- FastAPI
-- Streamlit
-- ChromaDB
-- Hugging Face Inference API
-- Production Software Architecture
-- REST API Design
-- Frontend–Backend Integration
-- Modular Python Development
-
----
-
-# 👨‍💻 Author
-
-**Nikhil Aditya**
-
-M.Tech Software Engineering
-
-VIT-AP University
-
-GitHub: https://github.com/nikhiladitya-dev
-
----
 
 # ⭐ Support
 
